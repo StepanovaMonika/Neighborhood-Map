@@ -34,7 +34,7 @@ class App extends Component {
       { id: "57c3f97ecd1044d8976d5fa7" }, // Čajovna za zrcadlem
     ]
 
-    // Fetch venue's data from Foursquare API 
+    // Fetch venue's data from Foursquare API
     venueList.map(venue => {
       fetch(`https://api.foursquare.com/v2/venues/${venue.id}?client_id=${foursquare.client_id}
         &client_secret=${foursquare.client_secret}
@@ -105,6 +105,7 @@ class App extends Component {
       <div className="App">
         {/* Passing component props to child component */}
         <List
+          role="navigation"
           locations={this.state.locations}
           query={this.state.query}
           updateQuery={this.updateQuery}
@@ -121,10 +122,10 @@ class App extends Component {
           onClick={this.handleMapClick}
           initialCenter={{ lat: 49.195392, lng: 16.599223}}
           google={this.props.google}>
-            {/* Filter locations, turn locations into lower case and return those that match query */} 
+            {/* Filter locations, turn locations into lower case and return those that match query */}
             {(this.state.locations
               .filter(location => {
-              	return (location.name.toLowerCase().includes(this.state.query.toLowerCase())) 
+              	return (location.name.toLowerCase().includes(this.state.query.toLowerCase()))
               })
               .map(location => {
               {/* Check if names of the selected marker and the current marker are the same – if they match, set marker animation to BOUNCE */}
@@ -143,7 +144,7 @@ class App extends Component {
                 )
               })
             )}
-          {/* Render ÏnfoWindow component from google-maps-react */}
+          {/* Render InfoWindow component from google-maps-react */}
           <InfoWindow
             ref="infoWindow"
             marker={this.state.selectedMarker}
@@ -153,7 +154,7 @@ class App extends Component {
               <header className="infoWindow">
                 <h2>{this.state.selectedPlace.title}</h2>
                 {/* Check if selected place has a title and filter location from state that matches selected place */}
-                { 
+                {
                   (this.state.selectedPlace.title) ? (<p>{this.state.locations
                   .filter(location => {
                     return (location.name.toLowerCase() === this.state.selectedPlace.title.toLowerCase())

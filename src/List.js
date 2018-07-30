@@ -11,6 +11,8 @@ class List extends Component {
         <header>
           <h2>Places in Brno</h2>
           <button
+            tabIndex="1"
+            role="button"
             id="toggle"
             onClick={ this.props.toggleMenu }
           >
@@ -22,17 +24,19 @@ class List extends Component {
         </header>
         <div className={visibleLocationListClass}>
           <input
+            role="textbox" contentEditable="true"
             id="input-text"
+            aria-label="Search place name"
             tabIndex="1"
             type="text"
             placeholder="Enter place name"
             onChange={(event) => this.props.updateQuery(event.target.value)} // Update query
           />
-          <ul>
+          <ul role="list">
             {/* Filter locations, turn locations into lower case and return those that match query */}
             {(this.props.locations
               .filter(location => {
-                return (location.name.toLowerCase().includes(this.props.query.toLowerCase())) 
+                return (location.name.toLowerCase().includes(this.props.query.toLowerCase()))
               })
               .map(location => {
                 return (
