@@ -39,7 +39,7 @@ ul {
 
 ul li {
   padding: 0.5rem 0 0.5rem 1rem;
-  border-top: 1px solid #b133ba;
+  border-bottom: 1px solid #9e61ff;
 }
 
 ul li:hover {
