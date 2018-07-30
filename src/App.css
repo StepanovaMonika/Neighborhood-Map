@@ -1,0 +1,132 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.location-list {
+  width: 30%;
+  background-color: #511367;
+  color: white;
+  padding: 20px;
+
+}
+
+.location-list header {
+  display: flex;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+#toggle {
+  display: none;
+}
+
+#input-text {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  color: white;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+ul li {
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-top: 1px solid #b133ba;
+}
+
+ul li:hover {
+  background-color: #430547;
+}
+
+ul li:focus {
+  background-color: #430547;
+}
+
+.map {
+  position: absolute !important;
+  right: 0px;
+  width: 70% !important;
+  background-color: grey;
+}
+
+.infoWindow {
+  max-width: 200px !important;
+  padding: 10px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  .location-list {
+    width: 35%;
+  }
+
+  .map {
+    width: 65% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .location-list {
+    width: 40%
+  }
+
+  .map {
+    width: 60% !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+
+  .App {
+    flex-direction: column;
+  }
+
+  .location-list {
+    width: 100%;
+    z-index: 1000;
+    height: auto;
+  }
+
+  .location-list-show {
+    display: none;
+  }
+
+  #toggle {
+    display: block;
+    margin-left: auto;
+    background-color: black;
+    width: 46px;
+    height: 40px;
+    padding: 9px 8px;
+    text-align: center;
+    border: none;
+  }
+
+  #toggle:hover {
+    background-color: #181818;
+  }
+
+  #toggle span {
+    background-color: white;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+  }
+
+  .map {
+    width: 100% !important;
+    height: 90%
+  }
+}
