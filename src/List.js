@@ -11,8 +11,8 @@ class List extends Component {
         <header>
           <h2>Places in Brno</h2>
           <button
-            tabIndex="1"
-            role="button"
+            tabIndex="0"
+            aria-label="Hamburger menu"
             id="toggle"
             onClick={ this.props.toggleMenu }
           >
@@ -24,15 +24,15 @@ class List extends Component {
         </header>
         <div className={visibleLocationListClass}>
           <input
-            role="textbox" contentEditable="true"
+            role="search"
             id="input-text"
             aria-label="Search place name"
-            tabIndex="1"
+            tabIndex="0"
             type="text"
             placeholder="Enter place name"
             onChange={(event) => this.props.updateQuery(event.target.value)} // Update query
           />
-          <ul role="list">
+          <ul aria-label="List of places">
             {/* Filter locations, turn locations into lower case and return those that match query */}
             {(this.props.locations
               .filter(location => {
@@ -42,7 +42,7 @@ class List extends Component {
                 return (
                   <li
                     key={location.id}
-                    tabIndex={location.id}
+                    tabIndex="0"
                     onClick={(event) => this.props.handleListClick(event.target)}
                     onKeyPress={(event) => this.props.handleEnterPress(event, event.target)}>
                     {location.name}
@@ -51,6 +51,9 @@ class List extends Component {
               })
             )}
           </ul>
+          <footer className="footer">
+             <p className="credentials">Powered by Foursquare API</p>
+          </footer>
         </div>
       </div>
     )

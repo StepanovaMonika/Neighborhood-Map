@@ -50,6 +50,15 @@ ul li:focus {
   background-color: #430547;
 }
 
+.footer {
+  position: fixed;
+  bottom: 20px;
+}
+
+.credentials {
+  font-size: 70%;
+}
+
 .map {
   position: absolute !important;
   right: 0px;
@@ -128,5 +137,9 @@ ul li:focus {
   .map {
     width: 100% !important;
     height: 90%
+  }
+
+  .footer {
+    display: none;
   }
 }

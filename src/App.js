@@ -46,8 +46,12 @@ class App extends Component {
         .then(json => {
           this.setState({ locations: [...this.state.locations, json.response.venue] })
         })
-        .catch(error => console.log("Error with fetching data from Foursquare"));
+        .catch(error => alert("Error with fetching data from Foursquare API. Please refresh your browser window or try again later."));
     })
+
+    window.gm_authFailure = function() {
+      alert("Google maps failed to load. Please refresh your browser window or try again later.");
+    }
   }
 
   // Show info window when marker is clicked
